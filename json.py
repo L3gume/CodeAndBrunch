@@ -17,5 +17,5 @@ class JSONParser:
     def parseJSON(self):
         x = json.loads(data, object_hook=lambda 
                 d: namedtuple('X', d.keys())(*d.values()))
-        message = Message(x.date, x.author, x.content)
+        message = Message(x.created_at, x.user.screen_name, x.text)
         return message
