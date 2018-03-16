@@ -10,12 +10,13 @@ class Message:
         self.content = _content
 
     def prettyPrint(self):
-        print("not implemented")
+        print("Name: " + self.author + "\nDate:" + self.date + "\nTweet: " + self.content)
 
         
 class JSONParser:
 
     def parseJSON(self, data):
-        x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys(), rename = True)(*d.values()))
-        message = Message(x.created_at, x.user.screen_name, x.text)
+        jsonStr = json.dumps(data._json)
+        jsonDict = json.loads(jsonStr, object_hook=lambda d: namedtuple('X', d.keys(), rename = True)(*d.values()))
+        message = Message(jsonDict.created_at, jsonDict.user.screen_name, jsonDict.text)
         return message
