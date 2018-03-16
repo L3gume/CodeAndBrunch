@@ -16,7 +16,6 @@ class Message:
 class JSONParser:
 
     def parseJSON(self, data):
-        x = json.loads(data, object_hook=lambda 
-                d: namedtuple('X', d.keys())(*d.values()))
+        x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys(), rename = True)(*d.values()))
         message = Message(x.created_at, x.user.screen_name, x.text)
         return message
