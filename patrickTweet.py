@@ -3,8 +3,8 @@
 # PatrickTweet
 # A very useful command-line tool that gives you a random tweet with "Patrick" in it.
 
-from CodeAndBrunch import Message
-from CodeAndBrunch import JSONParser
+from jsonParser import Message
+from jsonParser import JSONParser 
 
 import twitter
 api = twitter.Api(consumer_key='ghEPZheOTZDGLveQicPtGV39i',
@@ -14,7 +14,7 @@ api = twitter.Api(consumer_key='ghEPZheOTZDGLveQicPtGV39i',
 
 tweets = api.GetSearch(term="patrick")
 
-print("yo your script works")
+print(tweets)
 
 def foo():
     return 1
