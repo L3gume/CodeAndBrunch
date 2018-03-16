@@ -4,6 +4,7 @@ from setuptools import setup
 setup (
     # basic stuff here
     scripts = [
-        'patrickTweet.py'
+        'patrickTweet.py',
+        'jsonParser.py'
     ]
 )
